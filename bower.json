@@ -1,0 +1,22 @@
+{
+  "name": "mpx-frontend-module-utils",
+  "homepage": "https://github.com/mediapeers/mpx-frontend-module-utils",
+  "authors": [
+    "Jason Grier <grier@mediapeers.com>"
+  ],
+  "description": "",
+  "main": "index.js",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.3.0",
+    "angular": "^1.4.0"
+  }
+}
