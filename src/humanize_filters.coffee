@@ -110,3 +110,8 @@ angular.module("mpx-frontend-module-utils").filter 'humanizeAssetClassification'
   (name) ->
     return '' unless name
     (_.map name.split('_'), (x) -> capitalizeFilter(x)).join(' ')
+
+angular.module("mpx-base-frontend").filter 'humanizeJson', () ->
+  (json) ->
+    return 'JSON is not available' unless json
+    JSON.stringify(json, null, 2)
