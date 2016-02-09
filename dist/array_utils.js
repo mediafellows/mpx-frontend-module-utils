@@ -10,9 +10,8 @@
         var index;
         index = _index(arr, obj);
         if (index > -1) {
-          arr.splice(index, 1);
+          return arr.splice(index, 1);
         }
-        return console.log('hello');
       });
       return dirty(arr);
     };
