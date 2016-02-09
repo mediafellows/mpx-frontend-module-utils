@@ -257,7 +257,7 @@
     };
   });
 
-  angular.module("mpx-base-frontend").filter('humanizeJson', function() {
+  angular.module("mpx-frontend-module-utils").filter('humanizeJson', function() {
     return function(json) {
       if (!json) {
         return 'JSON is not available';
