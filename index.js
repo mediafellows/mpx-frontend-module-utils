@@ -1,4 +1,9 @@
 (function() {
+  angular.module('mpx-frontend-module-utils', []);
+
+}).call(this);
+
+(function() {
   angular.module("mpx-frontend-module-utils").factory('$arrayUtils', function() {
     var _index, add, dirty, insert, remove, replace;
     remove = function(arr, objects) {
@@ -368,11 +373,6 @@
       }
     };
   });
-
-}).call(this);
-
-(function() {
-  angular.module('mpx-frontend-module-utils', []);
 
 }).call(this);
 

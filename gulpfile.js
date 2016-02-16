@@ -3,7 +3,7 @@ const $ = require('gulp-load-plugins')();
 const del = require('del');
 
 gulp.task('compile',['clean:dist'], function () {
-  return gulp.src(['src/main.coffee', 'src/**/*.coffee'])
+  return gulp.src(['src/module.coffee', 'src/**/*.coffee'])
     .pipe($.coffee({bare: false}, {sourceMap: false}).on('error', $.util.log))
     .pipe($.ngAnnotate())
     .pipe($.concat('index.js'))
