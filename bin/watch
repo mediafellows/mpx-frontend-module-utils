@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-coffee --watch --output ./dist --compile ./src

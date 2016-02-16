@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-coffee --output ./dist --compile ./src && node ./bin/concat.js
