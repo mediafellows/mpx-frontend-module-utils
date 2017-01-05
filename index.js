@@ -476,6 +476,15 @@
 }).call(this);
 
 (function() {
+  angular.module("mpx-frontend-module-utils").filter('trustedHtml', ["$sce", function($sce) {
+    return function(value) {
+      return $sce.trustAsHtml(value);
+    };
+  }]);
+
+}).call(this);
+
+(function() {
   angular.module("mpx-frontend-module-utils").filter('type', ["$utils", function($utils) {
     return function(obj) {
       return $utils.modelType(obj);
