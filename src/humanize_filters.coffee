@@ -81,8 +81,8 @@ angular.module("mpx-frontend-module-utils").filter 'humanizeBoolean', ($rootScop
   (value) ->
     # HACK: https://issues.mediapeers.com/issues/45509
     txt = 
-      true: $rootScope.affiliationId == 'nbcu' ? 'Yes' : 'On'
-      false: $rootScope.affiliationId == 'nbcu' ? 'No' : 'Off'
+      true: if $rootScope.affiliationId == 'nbcu' then 'Yes' else 'On'
+      false: if $rootScope.affiliationId == 'nbcu' then 'No' else 'Off'
     if value == true || value == 'true' then txt.true else txt.false
 
 angular.module("mpx-frontend-module-utils").filter 'humanizeLayerType', (capitalizeFilter) ->

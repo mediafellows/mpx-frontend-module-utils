@@ -193,14 +193,10 @@
 
   angular.module("mpx-frontend-module-utils").filter('humanizeBoolean', ["$rootScope", function($rootScope) {
     return function(value) {
-      var ref, ref1, txt;
+      var txt;
       txt = {
-        "true": (ref = $rootScope.affiliationId === 'nbcu') != null ? ref : {
-          'Yes': 'On'
-        },
-        "false": (ref1 = $rootScope.affiliationId === 'nbcu') != null ? ref1 : {
-          'No': 'Off'
-        }
+        "true": $rootScope.affiliationId === 'nbcu' ? 'Yes' : 'On',
+        "false": $rootScope.affiliationId === 'nbcu' ? 'No' : 'Off'
       };
       if (value === true || value === 'true') {
         return txt["true"];
