@@ -191,22 +191,21 @@
     };
   });
 
-  angular.module("mpx-frontend-module-utils").filter('humanizeBoolean', ["$filter", function($filter) {
+  angular.module("mpx-frontend-module-utils").filter('humanizeBoolean', ["$rootScope", function($rootScope) {
     return function(value) {
+      var ref, ref1, txt;
+      txt = {
+        "true": (ref = $rootScope.affiliationId === 'nbcu') != null ? ref : {
+          'Yes': 'On'
+        },
+        "false": (ref1 = $rootScope.affiliationId === 'nbcu') != null ? ref1 : {
+          'No': 'Off'
+        }
+      };
       if (value === true || value === 'true') {
-        return 'On';
+        return txt["true"];
       } else {
-        return 'Off';
-      }
-    };
-  }]);
-
-  angular.module("mpx-frontend-module-utils").filter('humanizeBooleanYesNo', ["$filter", function($filter) {
-    return function(value) {
-      if (value === true || value === 'true') {
-        return 'Yes';
-      } else {
-        return 'No';
+        return txt["false"];
       }
     };
   }]);
