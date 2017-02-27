@@ -201,16 +201,6 @@
     };
   }]);
 
-  angular.module("mpx-frontend-module-utils").filter('humanizeBooleanYesNo', ["$filter", function($filter) {
-    return function(value) {
-      if (value === true || value === 'true') {
-        return 'Yes';
-      } else {
-        return 'No';
-      }
-    };
-  }]);
-
   angular.module("mpx-frontend-module-utils").filter('humanizeLayerType', ["capitalizeFilter", function(capitalizeFilter) {
     return function(layerType) {
       if (!layerType) {
