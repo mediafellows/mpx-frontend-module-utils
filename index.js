@@ -191,12 +191,17 @@
     };
   });
 
-  angular.module("mpx-frontend-module-utils").filter('humanizeBoolean', ["$filter", function($filter) {
+  angular.module("mpx-frontend-module-utils").filter('humanizeBoolean', ["$rootScope", function($rootScope) {
     return function(value) {
+      var txt;
+      txt = {
+        "true": $rootScope.affiliationId === 'nbcu' ? 'Yes' : 'On',
+        "false": $rootScope.affiliationId === 'nbcu' ? 'No' : 'Off'
+      };
       if (value === true || value === 'true') {
-        return 'On';
+        return txt["true"];
       } else {
-        return 'Off';
+        return txt["false"];
       }
     };
   }]);

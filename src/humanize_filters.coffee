@@ -77,9 +77,13 @@ angular.module("mpx-frontend-module-utils").filter 'humanizeSwapLongNumber', ->
     pre = ' ' + ("kMGTPE")[exp - 1]
     (value / Math.pow(unit, exp)).toFixed(precision) + pre
 
-angular.module("mpx-frontend-module-utils").filter 'humanizeBoolean', ($filter) ->
+angular.module("mpx-frontend-module-utils").filter 'humanizeBoolean', ($rootScope) ->
   (value) ->
-    if value == true || value == 'true' then 'On' else 'Off'
+    # HACK: https://issues.mediapeers.com/issues/45509
+    txt = 
+      true: if $rootScope.affiliationId == 'nbcu' then 'Yes' else 'On'
+      false: if $rootScope.affiliationId == 'nbcu' then 'No' else 'Off'
+    if value == true || value == 'true' then txt.true else txt.false
 
 angular.module("mpx-frontend-module-utils").filter 'humanizeLayerType', (capitalizeFilter) ->
   (layerType) ->
