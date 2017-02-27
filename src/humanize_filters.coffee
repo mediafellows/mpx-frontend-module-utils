@@ -79,7 +79,7 @@ angular.module("mpx-frontend-module-utils").filter 'humanizeSwapLongNumber', ->
 
 angular.module("mpx-frontend-module-utils").filter 'humanizeBoolean', ($rootScope) ->
   (value) ->
-    # HACK: https://issues.mediapeers.com/issues/45509
+    # HACK: This should be done in mpx-core.
     txt = 
       true: if $rootScope.affiliationId == 'nbcu' then 'Yes' else 'On'
       false: if $rootScope.affiliationId == 'nbcu' then 'No' else 'Off'
