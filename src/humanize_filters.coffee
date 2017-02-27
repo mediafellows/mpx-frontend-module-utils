@@ -81,6 +81,10 @@ angular.module("mpx-frontend-module-utils").filter 'humanizeBoolean', ($filter) 
   (value) ->
     if value == true || value == 'true' then 'On' else 'Off'
 
+angular.module("mpx-frontend-module-utils").filter 'humanizeBooleanYesNo', ($filter) ->
+  (value) ->
+    if value == true || value == 'true' then 'Yes' else 'No'
+
 angular.module("mpx-frontend-module-utils").filter 'humanizeLayerType', (capitalizeFilter) ->
   (layerType) ->
     return '' unless layerType
