@@ -77,13 +77,13 @@ angular.module("mpx-frontend-module-utils").filter 'humanizeSwapLongNumber', ->
     pre = ' ' + ("kMGTPE")[exp - 1]
     (value / Math.pow(unit, exp)).toFixed(precision) + pre
 
-angular.module("mpx-frontend-module-utils").filter 'humanizeBoolean', ($filter) ->
+angular.module("mpx-frontend-module-utils").filter 'humanizeBoolean', ($rootScope) ->
   (value) ->
-    if value == true || value == 'true' then 'On' else 'Off'
-
-angular.module("mpx-frontend-module-utils").filter 'humanizeBooleanYesNo', ($filter) ->
-  (value) ->
-    if value == true || value == 'true' then 'Yes' else 'No'
+    # HACK: https://issues.mediapeers.com/issues/45509
+    txt = 
+      true: $rootScope.affiliationId === 'nbcu' ? 'Yes' : 'On'
+      false: $rootScope.affiliationId === 'nbcu' ? 'No' : 'Off'
+    if value == true || value == 'true' then txt.true else txt.false
 
 angular.module("mpx-frontend-module-utils").filter 'humanizeLayerType', (capitalizeFilter) ->
   (layerType) ->
