@@ -389,16 +389,9 @@
         return obj.full_title;
       }
       ancestorTitles = obj.full_title.replace(" - " + obj.display_title, '');
-      parentTitle = null;
-      if (ancestorTitles) {
-        parentTitle = "<span class=\"parent-title\">" + ancestorTitles + "</span><br>";
-      }
+      parentTitle = "<span class=\"parent-title\">" + ancestorTitles + "</span><br>";
       title = "<span class=\"title\">" + obj.display_title + "</span>";
-      fullTitle = '';
-      if (parentTitle != null) {
-        fullTitle = parentTitle;
-      }
-      fullTitle += title;
+      fullTitle = "" + parentTitle + title;
       return fullTitle;
     };
   }]);
