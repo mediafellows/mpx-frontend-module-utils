@@ -384,14 +384,16 @@
 (function() {
   angular.module("mpx-frontend-module-utils").filter('parentChildTitle', ["$utils", function($utils) {
     return function(obj) {
-      var fullTitle, fullTitleParts, parentTitle, pattern, title;
-      pattern = /^(.*) - (.*) (\([0-9\/].+\))/;
-      fullTitleParts = pattern.exec(obj.full_title);
-      if (fullTitleParts == null) {
+      var ancestorTitles, fullTitle, parentTitle, title;
+      if (obj.full_title === obj.display_title) {
         return obj.full_title;
       }
-      parentTitle = ("<span class=\"parent-title\">" + fullTitleParts[1] + "</span><br>") || null;
-      title = "<span class=\"title\">" + fullTitleParts[2] + " " + fullTitleParts[3] + "</span>";
+      ancestorTitles = obj.full_title.replace(" - " + obj.display_title, '');
+      parentTitle = null;
+      if (ancestorTitles) {
+        parentTitle = "<span class=\"parent-title\">" + ancestorTitles + "</span><br>";
+      }
+      title = "<span class=\"title\">" + obj.display_title + "</span>";
       fullTitle = '';
       if (parentTitle != null) {
         fullTitle = parentTitle;
