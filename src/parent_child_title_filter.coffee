@@ -1,11 +1,8 @@
 angular.module("mpx-frontend-module-utils").filter 'parentChildTitle', ($utils) ->
   (obj) ->
-    pattern = /^(.*) - (.*) (\([0-9/].+\))/
-    fullTitleParts = pattern.exec(obj.full_title)
-    return obj.full_title if !fullTitleParts?
-    parentTitle = "<span class=\"parent-title\">#{fullTitleParts[1]}</span><br>" || null
-    title = "<span class=\"title\">#{fullTitleParts[2]} #{fullTitleParts[3]}</span>"
-    fullTitle = ''
-    fullTitle = parentTitle if parentTitle?
-    fullTitle += title
+    return obj.full_title if obj.full_title == obj.display_title
+    ancestorTitles = obj.full_title.replace(" - #{obj.display_title}", '')
+    parentTitle = """<span class="parent-title">#{ancestorTitles}</span><br>"""
+    title = """<span class="title">#{obj.display_title}</span>"""
+    fullTitle = "#{parentTitle}#{title}"
     fullTitle
